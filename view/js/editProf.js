@@ -21,7 +21,8 @@ submitBtn.addEventListener("click", () => {
     fd.append("email", email.value);
     fd.append("password", password.value);
     fd.append("displayName", displayName.value);
-    fd.append("message", message.innerHTML);
+    fd.append("message", message.value);
+    fd.append("avatar", imageUrl.value);
     fd.append("table", "editProf");
 
     fetch('../server/insert.php', {

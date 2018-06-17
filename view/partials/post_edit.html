@@ -1,1 +1,19 @@
-<h1>post edit</h1>
+<?php
+include("../server/connect.php");
+$getId = $_GET["id"];
+$result = $db->query("select * from posts where id='$getId'".";");
+
+if ($result) {
+  $allPosts = $result-> fetchAll();
+  foreach ($allPosts as $id=>$row) {
+    echo "<div class='post'>";
+    echo '<input id="title" type="text" placeholder="title" value=' .'"' . $row["title"] .'"' .'/>';
+    echo "<input id='users_id' type='text' placeholder='users_id' value=" ."'" . $row["users_id"] ."'".">";
+    echo "<textarea id='message' rows='4' cols='19'>" . $row["message"]."</textarea>";
+    echo "</div>";
+  }
+}
+?>
+<input id="editProfBtn" type="button" value="submit">
+<script type="text/javascript">var id = "<?= $getId ?>";</script>
+<script src="../view/js/editPost.js"></script>

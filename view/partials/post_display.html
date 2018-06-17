@@ -1,3 +1,10 @@
 <h1>display post</h1>
 <div id="displayPosts"></div>
 <script src="js/show.js"></script>
+<?php
+if(isset($_GET["id"])){
+    $getId = $_GET["id"];
+    echo "<script type='text/javascript'>var id =" . $getId ."</script>";
+    echo "<script src='js/delete.js'></script>";
+}
+?>
